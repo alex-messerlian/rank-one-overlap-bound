@@ -46,53 +46,55 @@ transpose, lower bounds}
 
 \section{Introduction}\label{sec:intro}
 
-\paragraph{Motivation} Functionals such as $\Tr(O\rho^2)$ appear in virtual cooling and in distillation-based error
-mitigation (see~\cite{du} and references therein). They are linear in $\rho^{\otimes2}$, so for $\|O\|_\infty\le1$ joint
-two-copy measurements estimate them to constant accuracy with a number of copies independent of the dimension $d$. Many platforms, however, measure one copy at a
-time. Randomized single-copy measurements~\cite{hkp20} then provide estimators, and Du~\emph{et~al.}~\cite{du} showed
-that suitably designed random measurements estimate $\Tr(O\rho^2)$ for every observable with $\|O\|_\infty\le1$ using
-$O(\max\{\sqrt d/\varepsilon,1/\varepsilon^2\})$ copies, up to a factor $\log[\eta^{-1}\log(\varepsilon^{-1})]$ for failure
-probability $\eta$. Matching adaptive single-copy lower bounds of order $\sqrt d$ are known for $O=Z_1$: they follow from
-the hard instances of~\cite{hbc22}, whose theorem is stated for the normalized quantity $\Tr(Z_1\rho^2)/\Tr(\rho^2)$ (see
-the appendix of~\cite{du}), and a unitary change of basis extends them to every nonidentity Pauli observable~\cite{du}.
-Bounds of the same order hold for general observables with $\|O\|_1=\Omega(d)$ in a restricted range of
-accuracies~\cite{ye}. Du~\emph{et~al.} leave open whether $\Omega(\sqrt d)$ copies are needed for low-rank
-observables~\cite{du}.
+\paragraph{Motivation} Quantities of the form $\Tr(O\rho^2)$ come up in virtual cooling and in distillation-based
+error mitigation (see~\cite{du} and references therein). Because they are linear in $\rho^{\otimes2}$, joint
+measurements on two copies can estimate them, for $\|O\|_\infty\le1$, to constant accuracy with a number of copies that
+does not depend on the dimension $d$. Many experimental platforms, however, can only measure one copy at a time. In that
+setting randomized measurements~\cite{hkp20} still give estimators, and Du~\emph{et~al.}~\cite{du} showed that
+well-chosen random measurements estimate $\Tr(O\rho^2)$ for every observable with $\|O\|_\infty\le1$ using
+$O(\max\{\sqrt d/\varepsilon,1/\varepsilon^2\})$ copies, up to a factor $\log[\eta^{-1}\log(\varepsilon^{-1})]$ for
+failure probability $\eta$. For some observables this is known to be optimal. For $O=Z_1$, adaptive single-copy lower
+bounds of order $\sqrt d$ follow from the hard instances of~\cite{hbc22}, whose theorem is stated for the normalized
+quantity $\Tr(Z_1\rho^2)/\Tr(\rho^2)$ (see the appendix of~\cite{du}), and a unitary change of basis extends them to
+every nonidentity Pauli observable~\cite{du}. Bounds of the same order also hold for general observables with
+$\|O\|_1=\Omega(d)$, in a restricted range of accuracies~\cite{ye}. Whether low-rank observables are easier was left
+open by Du~\emph{et~al.}~\cite{du}.
 
-\paragraph{The question and our answer} Low-rank observables are natural targets, such as projectors onto known
-reference states. Does knowing such an observable remove the dimension dependence? For the simplest case, a fixed
-rank-one projector $P=\ket0\bra0$, we show that it does not: estimating $\Tr(P\rho^2)$ to error $\varepsilon<1/8$ with
-success probability $2/3$ by single-copy measurements requires $\Omega(d^{1/3})$ copies (Theorem~\ref{thm:main}). The
-bound holds even for the larger class of joint measurements whose effects remain positive under every partial
-transposition (PPT-BOTH). We also compute the optimal two-copy advantage exactly for the ensemble pair used in the proof
-(Theorem~\ref{thm:two}), and we show that summing the individual partially transposed step norms, the approach used
-here, cannot improve the exponent $1/3$ (Proposition~\ref{prop:limit}). The gap to the $O(\sqrt d)$ upper bound
-of~\cite{du} remains open.
+\paragraph{Main result} Low-rank observables, such as projectors onto known reference states, are natural things to
+measure, so it is reasonable to ask whether knowing such an observable removes the dependence on dimension. We show
+that it does not, already in the simplest case of a fixed rank-one projector $P=\ket0\bra0$. Estimating
+$\Tr(P\rho^2)$ to error $\varepsilon<1/8$ with success probability $2/3$ by single-copy measurements requires
+$\Omega(d^{1/3})$ copies (Theorem~\ref{thm:main}). The bound holds even for the larger class of joint measurements whose
+effects stay positive under every partial transposition (PPT-BOTH). For the pair of ensembles used in the proof, we
+also compute the best two-copy advantage exactly (Theorem~\ref{thm:two}). Finally, we show that the approach used here,
+summing the individual partially transposed step norms, cannot give an exponent better than $1/3$
+(Proposition~\ref{prop:limit}). Closing the gap to the $O(\sqrt d)$ upper bound of~\cite{du} remains an open problem.
 
-\paragraph{Techniques and credit} Our method is the partial-transpose telescoping introduced by Akresh and Beckey for
-purity and product testing~\cite{ab}: adaptive single-copy protocols are relaxed to PPT-BOTH measurements, and the
-distinguishing bias is telescoped copy by copy. The steps that come from the purity-type part of our ensembles are
-handled as in~\cite{ab}. Our ensembles, however, differ by the coherence between $\ket0$ and a hidden Haar-random
-vector, and this produces a phase-sensitive step with no counterpart in~\cite{ab}. Its exact trace norm
-(Lemma~\ref{lem:coh}) is the main new calculation.
+\paragraph{Techniques} Our proof uses the partial-transpose telescoping method that Akresh and Beckey introduced for
+purity and product testing~\cite{ab}. Adaptive single-copy protocols are first relaxed to PPT-BOTH measurements, and the
+distinguishing bias is then bounded one copy at a time. The steps coming from the purity-type part of our ensembles are
+handled as in~\cite{ab}. What is different here is that our two ensembles differ only in the coherence between $\ket0$
+and a hidden Haar-random vector. This produces a phase-sensitive step with no counterpart in~\cite{ab}, and computing
+its exact trace norm (Lemma~\ref{lem:coh}) is the main new calculation.
 
-\paragraph{Relation to other lower bounds} Learning-tree arguments give adaptive single-copy lower bounds for purity,
-inner-product estimation and related tasks~\cite{cchl,lgdc,ghyz}; their target functionals are not a fixed rank-one
-overlap. Lower bounds for state certification with incoherent measurements use random off-diagonal perturbations of a
-fixed block-diagonal state~\cite{chll,clo}. Those theorems require specific parameter conditions that our pair violates. For
-example, the balance condition $d_1\sqrt a\le d_2\sqrt b$ under which~\cite[Thm.~7.3]{chll} is stated fails for the
-blocks of our common single-copy average ($d_1=d-1$, $d_2=1$, $a=1/(2(d-1))$, $b=1/2$) whenever $d\ge3$. Moreover, there
-the null hypothesis is a fixed state and the perturbation is small, whereas in our pair both hypotheses contain a latent
-rank-one block tied to the coherence and the target functional differs by a constant. These results therefore do not
-imply Theorem~\ref{thm:main}. Harrow's PPT data-hiding bound~\cite[Thm.~7]{harrow23} requires states that commute with
-$U^{\otimes N}$ for every $U\in U(d)$; our ensembles are invariant only under the subgroup $1\oplus U(d-1)$. Recent
-protocols for nonlinear properties~\cite{li26,afrs,cwyz} give upper bounds or use joint operations on replicas. To our
-knowledge, at the time of writing no earlier result gives a dimension-growing lower bound for a fixed rank-one observable in this measurement
-model.
+\paragraph{Related work} Learning-tree arguments give adaptive single-copy lower bounds for purity, inner-product
+estimation and related tasks~\cite{cchl,lgdc,ghyz}, but none of these concern a fixed rank-one overlap. Lower bounds for
+state certification with incoherent measurements~\cite{chll,clo} use random off-diagonal perturbations of a fixed
+block-diagonal state, and their theorems come with parameter conditions that our pair does not satisfy. For example,
+\cite[Thm.~7.3]{chll} assumes the balance condition $d_1\sqrt a\le d_2\sqrt b$, which fails for the blocks of our
+common single-copy average ($d_1=d-1$, $d_2=1$, $a=1/(2(d-1))$, $b=1/2$) whenever $d\ge3$. There is also a structural
+difference: in those results the null hypothesis is a fixed state and the perturbation is small, while in our pair both
+hypotheses contain a hidden rank-one block tied to the coherence, and the target functional differs by a constant. So
+these results do not imply Theorem~\ref{thm:main}. Harrow's PPT data-hiding bound~\cite[Thm.~7]{harrow23} needs states
+that commute with $U^{\otimes N}$ for every $U\in U(d)$, whereas our ensembles are invariant only under the subgroup
+$1\oplus U(d-1)$. Recent protocols for nonlinear properties~\cite{li26,afrs,cwyz} either give upper bounds or use joint
+operations on replicas. As far as we know, no earlier result gives a lower bound that grows with the dimension for a
+fixed rank-one observable in this measurement model.
 
-\paragraph{Organization} Section~\ref{sec:setting} states the model and results. Section~\ref{sec:pair}
-introduces the hard pair. Sections~\ref{sec:proof} and~\ref{sec:two} prove the theorems. Section~\ref{sec:discussion}
-discusses the gap, and Appendix~\ref{app:posterior} records why a natural chain-rule route fails.
+\paragraph{Organization} Section~\ref{sec:setting} sets up the model and states the results, and
+Section~\ref{sec:pair} introduces the hard pair. Sections~\ref{sec:proof} and~\ref{sec:two} contain the proofs.
+Section~\ref{sec:discussion} discusses the remaining gap, and Appendix~\ref{app:posterior} explains why one natural
+chain-rule approach fails.
 
 \section{Setting and results}\label{sec:setting}
 
@@ -114,11 +116,11 @@ sum (or integral) of product positive operators $\bigotimes_{t=1}^NF_t$, and so 
 An effect $M$ on $(\C^d)^{\otimes N}$ is \emph{PPT-BOTH} if $0\le M^{\Gamma_S}\le I$ for every subset $S$ of the copies.
 \end{definition}
 
-Partial transposition maps product positive operators to product positive operators, so the accept effect of every
-single-copy protocol and its complement remain positive under every $\Gamma_S$: they are PPT-BOTH. For two $N$-copy
-states $\omega,\omega'$ and an effect $M$, we call $\Tr[M(\omega-\omega')]$ the \emph{advantage} of $M$. With equal
-priors, the test ``accept $\Rightarrow\omega$'' succeeds with probability $\tfrac12(1+\text{advantage})$, so its excess
-over $1/2$ is half the advantage.
+Since partial transposition maps product positive operators to product positive operators, the accept effect of any
+single-copy protocol and its complement stay positive under every $\Gamma_S$. In other words, they are PPT-BOTH. For
+two $N$-copy states $\omega,\omega'$ and an effect $M$, we call $\Tr[M(\omega-\omega')]$ the \emph{advantage} of $M$.
+With equal priors, the test that guesses $\omega$ when $M$ accepts and $\omega'$ otherwise is correct with probability
+$\tfrac12(1+\text{advantage})$, so the advantage is twice the improvement over a random guess.
 
 \begin{theorem}[main result]\label{thm:main}
 Let $d\ge3$. Suppose a single-copy protocol with $N$ copies outputs, for every state $\rho$ on $\C^d$, an estimate of
@@ -127,8 +129,8 @@ whenever $d\ge32$, and $N\ge(2(d-1))^{1/3}(1-o(1))$ as $d\to\infty$. The same co
 whose elements remain positive under every partial transposition.
 \end{theorem}
 
-Theorem~\ref{thm:main} follows from a bias bound for a specific ensemble pair (Theorem~\ref{thm:bias}). For that pair we
-also determine the two-copy value exactly.
+Theorem~\ref{thm:main} follows from a bound on how well one specific pair of ensembles can be told apart
+(Theorem~\ref{thm:bias}). For that pair we can also find the two-copy value exactly.
 
 \begin{theorem}[two copies]\label{thm:two}
 For the pair $\omega_c^{(2)},\omega_m^{(2)}$ of Section~\ref{sec:pair}, the largest advantage
@@ -393,7 +395,7 @@ $N>(1-\delta)(2D)^{1/3}$ for all sufficiently large $d$, for every fixed $\delta
 \begin{remark}[finite certificates]\label{rem:finite}
 Solving $\beta_N\ge1/3$ with the exact sum gives slightly larger finite thresholds than the simplified inequality. For
 example, at $d=64$ the exact sum requires $N\ge6$, while the simplified bound certifies $N\ge5$. The simplified
-threshold is asymptotic to $(2(d-1))^{1/3}$. Neither threshold is claimed to be the optimal sample complexity.
+threshold is asymptotic to $(2(d-1))^{1/3}$. We do not claim that either threshold is the optimal sample complexity.
 \end{remark}
 
 \section{Proof of Theorem~\ref{thm:two}}\label{sec:two}
@@ -424,16 +426,17 @@ $\|H_j\|_1=2\|a\|\|b\|=2d^{-1/2}(1-1/d)^{1/2}$. Summing over the $d$ outcomes gi
 \begin{remark}\label{rem:fourier}
 Measuring both copies in the same basis $\{\ket{f_j}\}$ without adaptation gives advantage exactly $1/(2d)$: here
 $\bra{f_k}H_j\ket{f_k}=\tfrac2d(\delta_{jk}-\tfrac1d)$, and the best accept set gives
-$\frac1{8D}\sum_{j,k}|\bra{f_k}H_j\ket{f_k}|=\frac1{2d}$. We make no claim about the best nonadaptive protocol.
+$\frac1{8D}\sum_{j,k}|\bra{f_k}H_j\ket{f_k}|=\frac1{2d}$. We do not claim that this is the best nonadaptive protocol.
 \end{remark}
 
 \section{Discussion}\label{sec:discussion}
 
 \paragraph{The gap} Theorem~\ref{thm:main} gives $\Omega(d^{1/3})$ copies for a fixed rank-one $P$, while~\cite{du}
-gives $O(\sqrt d)$ (Figure~\ref{fig:gap}). At $N=2$ the optimal advantage for our pair is $\Theta(1/\sqrt d)$ (Theorem~\ref{thm:two}), so no
-bound of the form $C\,N(N-1)/d$, the form that gives $\Omega(\sqrt d)$ for purity testing in~\cite{ab}, holds for this
-pair. A bound $C(N/\sqrt d+N^2/d)$ on the advantage of single-copy effects would give $\Omega(\sqrt d)$; whether it holds
-is open.
+gives $O(\sqrt d)$ (Figure~\ref{fig:gap}). For this pair, the two-copy result rules out the most direct way of
+closing the gap. At $N=2$ the optimal advantage for our pair is $\Theta(1/\sqrt d)$ (Theorem~\ref{thm:two}), so no bound of the form
+$C\,N(N-1)/d$ holds for this pair, even though a bound of that form is what gives $\Omega(\sqrt d)$ for purity testing
+in~\cite{ab}. A bound $C(N/\sqrt d+N^2/d)$ on the advantage of single-copy effects would give $\Omega(\sqrt d)$, but we
+do not know whether it holds.
 
 \begin{figure}[!htb]
 \centering
@@ -446,10 +449,10 @@ at the lower end and above it at the upper end (simulation, not used in any proo
 \label{fig:gap}
 \end{figure}
 
-\paragraph{Why summing step norms stops at \texorpdfstring{$d^{1/3}$}{d\textasciicircum(1/3)}} Even evaluating the full step norms exactly would not improve the
-exponent obtained by summing them with reference $\sigma$: by Proposition~\ref{prop:limit}, for $2\le N\le D$ the
-coherent steps alone contribute a sum between constant multiples of $N^{3/2}/\sqrt D$, and the remaining terms are
-nonnegative.
+\paragraph{Why summing step norms stops at \texorpdfstring{$d^{1/3}$}{d\textasciicircum(1/3)}} One might hope that computing
+the full step norms exactly, instead of bounding them, would improve the exponent. It would not, as long as the steps
+are summed with reference $\sigma$: by Proposition~\ref{prop:limit}, for $2\le N\le D$ the coherent steps alone add up to
+a quantity between constant multiples of $N^{3/2}/\sqrt D$, and the remaining terms are nonnegative.
 
 \begin{proposition}\label{prop:limit}
 For $2\le m\le D$,
@@ -473,34 +476,37 @@ $m\le D$.
 \end{proof}
 
 In particular, for $d\ge6$ and $2(d-1)^{1/3}+1\le N\le d-1$ the coherent step-norm sum alone is at least $1/3$, so this
-route cannot certify more than $2(d-1)^{1/3}+2$ copies. This limits only arguments that bound the advantage by the sum of the individual
-partially transposed step norms (Lemma~\ref{lem:tele}) with reference $\sigma$. It does not exclude other references,
-other groupings of copies, cancellations between different steps, or a global PPT certificate. Whether the largest
-PPT-BOTH advantage for this pair is $O(N/\sqrt d+N^2/d)$, which would give $\Omega(\sqrt d)$, is open.
+route cannot certify more than $2(d-1)^{1/3}+2$ copies. This limitation applies only to arguments that bound the
+advantage by the sum of the individual partially transposed step norms (Lemma~\ref{lem:tele}) with reference $\sigma$.
+It says nothing about other reference states, other groupings of copies, cancellations between different steps, or a
+global PPT certificate. Whether the largest PPT-BOTH advantage for this pair is $O(N/\sqrt d+N^2/d)$, which would give
+$\Omega(\sqrt d)$, is open.
 
-\paragraph{A failed route} A natural chain-rule approach would bound the per-copy distinguishability after a history by
-the norm of the coherent posterior mean $\E[u\mid\text{history}]$. Appendix~\ref{app:posterior} shows that this bound
-is false as stated: the two hypotheses can differ in their posterior second moments even when the posterior mean
-vanishes.
+\paragraph{A failed route} A natural approach through the chain rule would bound how well one more copy can be
+distinguished, given the history so far, by the norm of the coherent posterior mean $\E[u\mid\text{history}]$.
+Appendix~\ref{app:posterior} shows that this bound is false as stated: the two hypotheses can differ in their posterior
+second moments even when the posterior mean is zero.
 
-\paragraph{Numerical diagnostic, not used in any proof} The upper bound of~\cite{du} already implies that this pair can be
-distinguished with $O(\sqrt d)$ copies, so the pair cannot support a lower bound stronger than $\Omega(\sqrt d)$. We
-simulated one explicit adaptive protocol at $d\in\{256,1024,4096\}$ with 4000 trials per hypothesis (standard errors
-$0.008$--$0.011$). Half of the copies are measured in the basis $\{\ket{f_j}\}$ of Section~\ref{sec:two}, and $w$ is the
-normalized sum of the observed vectors $\Pi\ket{f_j}$; if that sum vanishes, $w$ is a fixed unit vector of $\Pi\C^d$ (this
-never occurred in the runs). The other half are measured in a basis containing $(\ket0\pm\ket w)/\sqrt2$, and the protocol
-decides by the majority sign, breaking ties with a fair coin (bars in Figure~\ref{fig:gap}). At $N=\sqrt d$, $2\sqrt d$ and $4\sqrt d$ (so
-$N/\sqrt{d-1}\approx1$, $2$, $4$) the advantages are approximately $0.12$--$0.13$, $0.24$--$0.26$ and $0.41$--$0.42$. At each
-of these three values the three dimensions agree within $1.4$ combined standard errors (over the whole grid, the largest
-such discrepancy is $2.3$, at $N=\sqrt d/4$), and at larger $N$ the advantage saturates near $1/2$, the largest value
-this sign test can reach. This is consistent with the open bound
-$C(N/\sqrt d+N^2/d)$, but a lower bound on the optimal advantage is not evidence for it.
+\paragraph{A numerical check} The simulation described here is not used in any proof. Since the upper bound
+of~\cite{du} already implies that this pair can be distinguished with $O(\sqrt d)$ copies, the pair cannot give a lower
+bound stronger than $\Omega(\sqrt d)$. To see how an explicit strategy behaves, we simulated one adaptive protocol at
+$d\in\{256,1024,4096\}$, with 4000 trials per hypothesis (standard errors $0.008$--$0.011$). The protocol measures half
+of the copies in the basis $\{\ket{f_j}\}$ of Section~\ref{sec:two} and sets $w$ to the normalized sum of the observed
+vectors $\Pi\ket{f_j}$; if that sum vanishes, $w$ is a fixed unit vector of $\Pi\C^d$ (this never happened in the
+runs). It measures the other half in a basis containing $(\ket0\pm\ket w)/\sqrt2$ and decides by the majority sign,
+breaking ties with a fair coin (bars in Figure~\ref{fig:gap}). At $N=\sqrt d$, $2\sqrt d$ and $4\sqrt d$ (so
+$N/\sqrt{d-1}\approx1$, $2$, $4$) the advantages are about $0.12$--$0.13$, $0.24$--$0.26$ and $0.41$--$0.42$. At each
+of these three values the three dimensions agree within $1.4$ combined standard errors (the largest discrepancy over
+the whole grid is $2.3$, at $N=\sqrt d/4$). At larger $N$ the advantage levels off near $1/2$, the most this sign test
+can reach. These numbers are consistent with the open bound $C(N/\sqrt d+N^2/d)$, but since they only bound the optimal
+advantage from below, they are not evidence for it.
 
 \backmatter
 
 \bmhead{Acknowledgements}
-The author thanks Ziwei Gu for mentorship and feedback that helped shape this project, for guidance on the research
-process, and for reading the manuscript.
+The author thanks Ziwei Gu (Harvard John A.\ Paulson School of Engineering and Applied Sciences, Harvard University) for
+mentorship and feedback that helped shape this project, for guidance on the research process, and for checking the
+mathematics.
 
 \section*{Statements and Declarations}
 
@@ -537,9 +543,9 @@ coherent posterior mean $\E[u\mid x_+,x_-]$ vanishes. Nevertheless, the conditio
 \]
 differ: the measurement $\{\ket1\bra1,I-\ket1\bra1\}$ gives the distributions $p_c=(\tfrac{13}{70},\tfrac{57}{70})$ and
 $p_m=(\tfrac{23}{110},\tfrac{87}{110})$, with $\chi^2(p_c\Vert p_m)=108/32683>0$. Hence no bound of the form
-$\chi^2\le C\|\E[u\mid\text{history}]\|^2$ holds. All values are exact rational Haar averages. A related separation, in
-which a transcript statistic vanishes while a second quantity that controls the error terms stays large, appears in
-certification lower bounds~\cite[App.~D]{chll}; we record the example only because it rules out this specific route.
+$\chi^2\le C\|\E[u\mid\text{history}]\|^2$ holds. All values are exact rational Haar averages. A similar separation, where one statistic
+of the transcript vanishes while another quantity that controls the error terms stays large, appears in certification
+lower bounds~\cite[App.~D]{chll}. We include the example only because it rules out this particular route.
 
 \end{appendices}
 
