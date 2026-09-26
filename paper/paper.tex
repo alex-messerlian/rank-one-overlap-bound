@@ -1,16 +1,17 @@
-\documentclass[11pt]{article}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{microtype}
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Springer Nature template, Math and Physical Sciences numbered references
 \usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage[title]{appendix}
 \graphicspath{{figures/}}
-\usepackage[hidelinks]{hyperref}
 
+\theoremstyle{thmstyleone}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
+\theoremstyle{thmstylethree}
 \newtheorem{definition}[theorem]{Definition}
+\theoremstyle{thmstyletwo}
 \newtheorem{remark}[theorem]{Remark}
 
 \newcommand{\Tr}{\operatorname{Tr}}
@@ -21,33 +22,31 @@
 \newcommand{\sym}{\mathrm{sym}}
 \newcommand{\C}{\mathbb{C}}
 
-\title{A single-copy lower bound for rank-one nonlinear overlap estimation}
-\author{Alexander Messerlian}
-\date{\small
-Independent Researcher, Palo Alto, CA, USA\\[4pt]
-\href{mailto:alex.messerlian@icloud.com}{alex.messerlian@icloud.com}\qquad
-ORCID: \href{https://orcid.org/0009-0003-4933-6832}{0009-0003-4933-6832}\\[10pt]
-{\normalsize September 26, 2026}}
+\raggedbottom
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-Randomized single-copy measurements estimate $\Tr(O\rho^2)$, for $\|O\|_\infty\le1$, from $O(\sqrt d)$ copies of a
+\title[Rank-one nonlinear overlap estimation]{A single-copy lower bound for rank-one nonlinear overlap estimation}
+
+\author*{\fnm{Alexander} \sur{Messerlian}}\email{alex.messerlian@icloud.com}
+\affil*{\orgname{Independent Researcher}, \orgaddress{\city{Palo Alto}, \state{CA}, \country{USA}}}
+
+\abstract{\unboldmath Randomized single-copy measurements estimate $\Tr(O\rho^2)$, for $\|O\|_\infty\le1$, from $O(\sqrt d)$ copies of a
 $d$-dimensional state at constant accuracy and confidence; this is optimal for observables with large trace norm. We
 show that low rank does not remove the dimension dependence. For a fixed rank-one projector $P$, any adaptive
 single-copy protocol that estimates $\Tr(P\rho^2)$ to error $\varepsilon<1/8$ with success probability at least $2/3$,
 for every state, needs more than $(d-1)^{1/3}$ copies when $d\ge32$. The proof extends partial-transpose telescoping to
 two ensembles differing only in coherence. For two copies, we find the largest acceptance-probability difference for
-this pair exactly: $1/(4\sqrt{d-1})$.
-\end{abstract}
+this pair exactly: $1/(4\sqrt{d-1})$.}
 
-\noindent\textbf{Keywords:} nonlinear observables $\cdot$ randomized measurements $\cdot$ sample complexity $\cdot$
-single-copy measurements $\cdot$ partial transpose $\cdot$ lower bounds
+\keywords{nonlinear observables, randomized measurements, sample complexity, single-copy measurements, partial
+transpose, lower bounds}
+
+\maketitle
 
 \section{Introduction}\label{sec:intro}
 
-\paragraph{Motivation.} Functionals such as $\Tr(O\rho^2)$ appear in virtual cooling and in distillation-based error
+\paragraph{Motivation} Functionals such as $\Tr(O\rho^2)$ appear in virtual cooling and in distillation-based error
 mitigation (see~\cite{du} and references therein). They are linear in $\rho^{\otimes2}$, so for $\|O\|_\infty\le1$ joint
 two-copy measurements estimate them to constant accuracy with a number of copies independent of the dimension $d$. Many platforms, however, measure one copy at a
 time. Randomized single-copy measurements~\cite{hkp20} then provide estimators, and Du~\emph{et~al.}~\cite{du} showed
@@ -60,7 +59,7 @@ Bounds of the same order hold for general observables with $\|O\|_1=\Omega(d)$ i
 accuracies~\cite{ye}. Du~\emph{et~al.} leave open whether $\Omega(\sqrt d)$ copies are needed for low-rank
 observables~\cite{du}.
 
-\paragraph{The question and our answer.} Low-rank observables are natural targets, such as projectors onto known
+\paragraph{The question and our answer} Low-rank observables are natural targets, such as projectors onto known
 reference states. Does knowing such an observable remove the dimension dependence? For the simplest case, a fixed
 rank-one projector $P=\ket0\bra0$, we show that it does not: estimating $\Tr(P\rho^2)$ to error $\varepsilon<1/8$ with
 success probability $2/3$ by single-copy measurements requires $\Omega(d^{1/3})$ copies (Theorem~\ref{thm:main}). The
@@ -70,14 +69,14 @@ transposition (PPT-BOTH). We also compute the optimal two-copy advantage exactly
 here, cannot improve the exponent $1/3$ (Proposition~\ref{prop:limit}). The gap to the $O(\sqrt d)$ upper bound
 of~\cite{du} remains open.
 
-\paragraph{Techniques and credit.} Our method is the partial-transpose telescoping introduced by Akresh and Beckey for
+\paragraph{Techniques and credit} Our method is the partial-transpose telescoping introduced by Akresh and Beckey for
 purity and product testing~\cite{ab}: adaptive single-copy protocols are relaxed to PPT-BOTH measurements, and the
 distinguishing bias is telescoped copy by copy. The steps that come from the purity-type part of our ensembles are
 handled as in~\cite{ab}. Our ensembles, however, differ by the coherence between $\ket0$ and a hidden Haar-random
 vector, and this produces a phase-sensitive step with no counterpart in~\cite{ab}. Its exact trace norm
 (Lemma~\ref{lem:coh}) is the main new calculation.
 
-\paragraph{Relation to other lower bounds.} Learning-tree arguments give adaptive single-copy lower bounds for purity,
+\paragraph{Relation to other lower bounds} Learning-tree arguments give adaptive single-copy lower bounds for purity,
 inner-product estimation and related tasks~\cite{cchl,lgdc,ghyz}; their target functionals are not a fixed rank-one
 overlap. Lower bounds for state certification with incoherent measurements use random off-diagonal perturbations of a
 fixed block-diagonal state~\cite{chll,clo}. Those theorems require specific parameter conditions that our pair violates. For
@@ -91,13 +90,13 @@ protocols for nonlinear properties~\cite{li26,afrs,cwyz} give upper bounds or us
 knowledge, at the time of writing no earlier result gives a dimension-growing lower bound for a fixed rank-one observable in this measurement
 model.
 
-\paragraph{Organization.} Section~\ref{sec:setting} states the model and results. Section~\ref{sec:pair}
+\paragraph{Organization} Section~\ref{sec:setting} states the model and results. Section~\ref{sec:pair}
 introduces the hard pair. Sections~\ref{sec:proof} and~\ref{sec:two} prove the theorems. Section~\ref{sec:discussion}
 discusses the gap, and Appendix~\ref{app:posterior} records why a natural chain-rule route fails.
 
 \section{Setting and results}\label{sec:setting}
 
-\paragraph{Notation.} Let $d\ge3$ and $D:=d-1$. We use the computational basis $\ket0,\ket1,\dots,\ket D$ of $\C^d$. Let
+\paragraph{Notation} Let $d\ge3$ and $D:=d-1$. We use the computational basis $\ket0,\ket1,\dots,\ket D$ of $\C^d$. Let
 $P=\ket0\bra0$ and $\Pi:=I-P$, and identify $\Pi\C^d$ with $\C^D$ through the real isometry $\iota:\C^D\to\C^d$ that
 maps the $i$-th basis vector to $\ket i$, $i=1,\dots,D$. The number of copies is $N$. We write
 $D_k:=\binom{D+k-1}{k}=\dim\mathrm{Sym}^k(\C^D)$ and $D^{(k)}:=D(D+1)\cdots(D+k-1)=k!\,D_k$, and $\Pi^{(k)}_\sym$ for
@@ -167,11 +166,11 @@ within $\varepsilon$ is below $3/8$ and the rule accepts with probability at mos
 and $\Tr[M\rho^{\otimes N}]$ is linear in $\rho^{\otimes N}$, averaging over $u$ gives the claim.
 \end{proof}
 
-\paragraph{Moment structure.} For a subset $S$ of copies let $Q_S$ be the projector onto vectors whose copies in $S$ lie
+\paragraph{Moment structure} For a subset $S$ of copies let $Q_S$ be the projector onto vectors whose copies in $S$ lie
 in $\Pi\C^d$ and whose other copies equal $\ket0$. For $w_1,\dots,w_k\in\C^D$ define
 \[
 J_k(w_1\otimes\cdots\otimes w_k):=\binom Nk^{-1/2}\sum_{S=\{s_1<\dots<s_k\}}\Bigl(\text{$\iota w_a$ on copy $s_a$,
-$\ket0$ on the copies not in $S$}\Bigr),
+$\ket0$ elsewhere}\Bigr),
 \]
 extended linearly to $(\C^D)^{\otimes k}$. The summands for different $S$ are orthogonal, so $J_k$ is an isometry, and
 the ranges of $J_k$ for different $k$ are orthogonal. Let $H_k:=J_k\,\mathrm{Sym}^k(\C^D)$, of dimension $D_k$, and
@@ -249,10 +248,10 @@ $P$ and $\Pi$, and $(\ket0\bra u)^T=\ket{\bar u}\bra0$, where $\bar u$ is the en
 Write $c_k:=\binom{m-1}k$. Expanding the last copy with $\rho_c=\tfrac12(P+\ket0\bra u+\ket u\bra0+\ket u\bra u)$
 and $\sigma=\tfrac12(P+\Pi/D)$, the $P$-terms cancel, and
 \begin{align*}
-X^c_m&:=\omega_c^{(m)}-\omega_c^{(m-1)}\otimes\sigma=\tfrac12(A_m+B_m),\qquad
-X^m_m:=\omega_m^{(m)}-\omega_m^{(m-1)}\otimes\sigma=\tfrac12A'_m,\\
-A_m&:=\E[\rho_c^{\otimes(m-1)}\otimes\ket u\bra u]-\omega_c^{(m-1)}\otimes\Pi/D,\qquad
-B_m:=\E[\rho_c^{\otimes(m-1)}\otimes(\ket0\bra u+\ket u\bra0)],\\
+X^c_m&:=\omega_c^{(m)}-\omega_c^{(m-1)}\otimes\sigma=\tfrac12(A_m+B_m),\\
+X^m_m&:=\omega_m^{(m)}-\omega_m^{(m-1)}\otimes\sigma=\tfrac12A'_m,\\
+A_m&:=\E[\rho_c^{\otimes(m-1)}\otimes\ket u\bra u]-\omega_c^{(m-1)}\otimes\Pi/D,\\
+B_m&:=\E[\rho_c^{\otimes(m-1)}\otimes(\ket0\bra u+\ket u\bra0)],\\
 A'_m&:=\E[\rho_m^{\otimes(m-1)}\otimes\ket u\bra u]-\omega_m^{(m-1)}\otimes\Pi/D .
 \end{align*}
 Hence $\|(X^c_m)^{\Gamma_m}\|_1\le\tfrac12\|A_m^{\Gamma_m}\|_1+\tfrac12\|B_m^{\Gamma_m}\|_1$ and
@@ -399,7 +398,7 @@ threshold is asymptotic to $(2(d-1))^{1/3}$. Neither threshold is claimed to be 
 
 \section{Proof of Theorem~\ref{thm:two}}\label{sec:two}
 
-\paragraph{Upper bound.} By~\eqref{eq:delta2}, $(\ket{i0}\bra{0i})^{\Gamma_2}=\ket{ii}\bra{00}$ and
+\paragraph{Upper bound} By~\eqref{eq:delta2}, $(\ket{i0}\bra{0i})^{\Gamma_2}=\ket{ii}\bra{00}$ and
 $(\ket{0i}\bra{i0})^{\Gamma_2}=\ket{00}\bra{ii}$, so
 \[
 Y^{\Gamma_2}=\ket{\Phi_\perp}\bra{00}+\ket{00}\bra{\Phi_\perp},\qquad \ket{\Phi_\perp}:=\sum_{i=1}^D\ket{ii}.
@@ -409,7 +408,7 @@ nonzero eigenvalues of $Y^{\Gamma_2}$ are $\pm\sqrt D$, and $\|\Delta_2^{\Gamma_
 effect, $\Tr[M\Delta_2]=\Tr[M^{\Gamma_2}\Delta_2^{\Gamma_2}]\le\tfrac12\|\Delta_2^{\Gamma_2}\|_1=1/(4\sqrt D)$, and
 single-copy protocols are PPT-BOTH.
 
-\paragraph{Achievability.} Measure the first copy in the Fourier basis $\ket{f_j}=d^{-1/2}\sum_{k=0}^De^{2\pi
+\paragraph{Achievability} Measure the first copy in the Fourier basis $\ket{f_j}=d^{-1/2}\sum_{k=0}^De^{2\pi
 ijk/d}\ket k$, $j=0,\dots,D$, for which $|\langle0|f_j\rangle|^2=1/d$. Given outcome $j$, let
 \[
 H_j:=(\bra{f_j}\otimes I)\,Y\,(\ket{f_j}\otimes I)=\langle0|f_j\rangle\ket0\bra{\Pi f_j}+\langle f_j|0\rangle\ket{\Pi
@@ -430,7 +429,7 @@ $\frac1{8D}\sum_{j,k}|\bra{f_k}H_j\ket{f_k}|=\frac1{2d}$. We make no claim about
 
 \section{Discussion}\label{sec:discussion}
 
-\paragraph{The gap.} Theorem~\ref{thm:main} gives $\Omega(d^{1/3})$ copies for a fixed rank-one $P$, while~\cite{du}
+\paragraph{The gap} Theorem~\ref{thm:main} gives $\Omega(d^{1/3})$ copies for a fixed rank-one $P$, while~\cite{du}
 gives $O(\sqrt d)$ (Figure~\ref{fig:gap}). At $N=2$ the optimal advantage for our pair is $\Theta(1/\sqrt d)$ (Theorem~\ref{thm:two}), so no
 bound of the form $C\,N(N-1)/d$, the form that gives $\Omega(\sqrt d)$ for purity testing in~\cite{ab}, holds for this
 pair. A bound $C(N/\sqrt d+N^2/d)$ on the advantage of single-copy effects would give $\Omega(\sqrt d)$; whether it holds
@@ -447,7 +446,7 @@ at the lower end and above it at the upper end (simulation, not used in any proo
 \label{fig:gap}
 \end{figure}
 
-\paragraph{Why summing step norms stops at $d^{1/3}$.} Even evaluating the full step norms exactly would not improve the
+\paragraph{Why summing step norms stops at \texorpdfstring{$d^{1/3}$}{d\textasciicircum(1/3)}} Even evaluating the full step norms exactly would not improve the
 exponent obtained by summing them with reference $\sigma$: by Proposition~\ref{prop:limit}, for $2\le N\le D$ the
 coherent steps alone contribute a sum between constant multiples of $N^{3/2}/\sqrt D$, and the remaining terms are
 nonnegative.
@@ -479,12 +478,12 @@ partially transposed step norms (Lemma~\ref{lem:tele}) with reference $\sigma$. 
 other groupings of copies, cancellations between different steps, or a global PPT certificate. Whether the largest
 PPT-BOTH advantage for this pair is $O(N/\sqrt d+N^2/d)$, which would give $\Omega(\sqrt d)$, is open.
 
-\paragraph{A failed route.} A natural chain-rule approach would bound the per-copy distinguishability after a history by
+\paragraph{A failed route} A natural chain-rule approach would bound the per-copy distinguishability after a history by
 the norm of the coherent posterior mean $\E[u\mid\text{history}]$. Appendix~\ref{app:posterior} shows that this bound
 is false as stated: the two hypotheses can differ in their posterior second moments even when the posterior mean
 vanishes.
 
-\paragraph{Numerical diagnostic, not used in any proof.} The upper bound of~\cite{du} already implies that this pair can be
+\paragraph{Numerical diagnostic, not used in any proof} The upper bound of~\cite{du} already implies that this pair can be
 distinguished with $O(\sqrt d)$ copies, so the pair cannot support a lower bound stronger than $\Omega(\sqrt d)$. We
 simulated one explicit adaptive protocol at $d\in\{256,1024,4096\}$ with 4000 trials per hypothesis (standard errors
 $0.008$--$0.011$). Half of the copies are measured in the basis $\{\ket{f_j}\}$ of Section~\ref{sec:two}, and $w$ is the
@@ -497,7 +496,34 @@ such discrepancy is $2.3$, at $N=\sqrt d/4$), and at larger $N$ the advantage sa
 this sign test can reach. This is consistent with the open bound
 $C(N/\sqrt d+N^2/d)$, but a lower bound on the optimal advantage is not evidence for it.
 
-\appendix
+\backmatter
+
+\bmhead{Acknowledgements}
+The author thanks Ziwei Gu for mentorship and feedback that helped shape this project, for guidance on the research
+process, and for reading the manuscript.
+
+\section*{Statements and Declarations}
+
+\begin{itemize}
+\item \textbf{Funding.} No external funding was received for this work; the author funded the project personally.
+\item \textbf{Competing interests.} The author declares no competing interests.
+\item \textbf{Ethics approval and consent to participate.} Not applicable.
+\item \textbf{Consent for publication.} Not applicable.
+\item \textbf{Data availability.} The simulation data shown in Figure~\ref{fig:gap} and described in
+Section~\ref{sec:discussion}, and the saved outputs of the exact and numerical checks, are openly available at
+\url{https://github.com/alex-messerlian/rank-one-overlap-bound}.
+\item \textbf{Materials availability.} Not applicable.
+\item \textbf{Code availability.} The scripts used for the exact and numerical checks are openly available at
+\url{https://github.com/alex-messerlian/rank-one-overlap-bound} under the MIT License.
+\item \textbf{Author contributions.} The author initiated and directed the project, proposed the problem from the open
+problems of~\cite{du}, revised the text, found errors that were corrected, oversaw all agentic workflows, and
+personally funded the project. The author takes full responsibility for the work.
+\item \textbf{Use of AI tools.} An AI assistant (Anthropic's Claude models, 2026 releases, used through the Claude Code
+command-line interface) derived the results and proofs, wrote the verification code, and drafted the text.
+\end{itemize}
+
+\begin{appendices}
+
 \section{A counterexample to a posterior-coherence route}\label{app:posterior}
 
 Let $d=4$. Measure copies 1 and 2 in the basis $\{\ket{x_\pm}=(\ket0\pm\ket1)/\sqrt2,\ket2,\ket3\}$ and condition on
@@ -515,31 +541,11 @@ $\chi^2\le C\|\E[u\mid\text{history}]\|^2$ holds. All values are exact rational 
 which a transcript statistic vanishes while a second quantity that controls the error terms stays large, appears in
 certification lower bounds~\cite[App.~D]{chll}; we record the example only because it rules out this specific route.
 
-\section*{Acknowledgements}
-
-The author thanks Ziwei Gu for mentorship and feedback that helped shape this project, for guidance on the research
-process, and for reading the manuscript.
-
-\section*{Statements and Declarations}
-
-\paragraph{Author contributions.} The author initiated and directed the project, proposed the problem from the open
-problems of~\cite{du}, revised the text, found errors that were corrected, oversaw all agentic workflows, and personally
-funded the project. The author takes full responsibility for the work.
-
-\paragraph{Use of AI tools.} An AI assistant (Anthropic's Claude models, 2026 releases, used through the Claude Code
-command-line interface) derived the results and proofs, wrote the verification code, and drafted the text.
-
-\paragraph{Funding.} No external funding was received for this work; the author funded the project personally.
-
-\paragraph{Competing interests.} The author declares no competing interests.
-
-\paragraph{Data and code availability.} The scripts used for the exact and numerical checks, their saved outputs, and
-the simulation data shown in Figure~\ref{fig:gap} and described in Section~\ref{sec:discussion} are openly available
-at \url{https://github.com/alex-messerlian/rank-one-overlap-bound}. The code is released under the MIT License.
+\end{appendices}
 
 {\sloppy\begin{thebibliography}{99}\itemsep2pt
 \bibitem{du} Z.~Du, Y.~Tang, A.~Elben, I.~Roth, J.~Eisert, Z.~Liu, Optimal randomized measurements for a family of
-non-linear quantum properties, PRX Quantum \textbf{7}, 010360 (2026), \url{https://doi.org/10.1103/4rkx-xkwy};
+nonlinear quantum properties, PRX Quantum \textbf{7}, 010360 (2026), \url{https://doi.org/10.1103/4rkx-xkwy};
 arXiv:2505.09206v2.
 \bibitem{hkp20} H.-Y.~Huang, R.~Kueng, J.~Preskill, Predicting many properties of a quantum system from very few
 measurements, Nat.\ Phys.\ \textbf{16}, 1050--1057 (2020), \url{https://doi.org/10.1038/s41567-020-0932-7};
@@ -552,22 +558,26 @@ properties of quantum states, arXiv:2509.24000v1 (2025).
 \bibitem{ab} O.~Akresh, J.~Beckey, Tight bounds for purity and product testing from partial transposition,
 arXiv:2608.27217v1 (2026).
 \bibitem{cchl} S.~Chen, J.~Cotler, H.-Y.~Huang, J.~Li, Exponential separations between learning with and without
-quantum memory, arXiv:2111.05881v2 (2021).
+quantum memory, in Proc.\ 62nd IEEE Symp.\ Found.\ Comput.\ Sci.\ (FOCS 2021), pp.~574--585,
+\url{https://doi.org/10.1109/FOCS52979.2021.00063}; arXiv:2111.05881v2.
 \bibitem{lgdc} Z.~Liu, W.~Gong, Z.~Du, Z.~Cai, Exponential separations between quantum learning with and without
 purification, arXiv:2410.17718v2 (2024).
-\bibitem{ghyz} W.~Gong, J.~Haferkamp, Q.~Ye, Z.~Zhang, On the sample complexity of purity and inner product
-estimation, arXiv:2410.12712v1 (2024).
+\bibitem{ghyz} W.~Gong, J.~Haferkamp, Q.~Ye, Z.~Zhang, Sample complexity of purity and inner product estimation,
+Phys.\ Rev.\ Res., accepted (2026), \url{https://doi.org/10.1103/kh2j-jkn6}; arXiv:2410.12712v1.
 \bibitem{chll} S.~Chen, B.~Huang, J.~Li, A.~Liu, Tight bounds for quantum state certification with incoherent
-measurements, arXiv:2204.07155v2 (2022).
+measurements, in Proc.\ 63rd IEEE Symp.\ Found.\ Comput.\ Sci.\ (FOCS 2022), pp.~1205--1213,
+\url{https://doi.org/10.1109/FOCS54457.2022.00118}; arXiv:2204.07155v2.
 \bibitem{clo} S.~Chen, J.~Li, R.~O'Donnell, Toward instance-optimal state certification with incoherent
-measurements, arXiv:2102.13098v2 (2021).
+measurements, in Proc.\ 35th Conf.\ Learning Theory (COLT 2022), PMLR \textbf{178}, pp.~2541--2596;
+arXiv:2102.13098v2.
 \bibitem{harrow23} A.~W.~Harrow, Approximate orthogonality of permutation operators, with application to quantum
 information, Lett.\ Math.\ Phys.\ \textbf{114}, 1 (2024), \url{https://doi.org/10.1007/s11005-023-01744-1};
 arXiv:2309.00715v1.
 \bibitem{li26} Z.~Li, D.~Chen, D.~Qin, Y.~Yang, Y.~Zhou, Quantum nonlinear properties from a single measurement
 setting, arXiv:2605.09958v1 (2026).
 \bibitem{afrs} Q.~Liu, Z.~Li, X.~Yuan, H.~Zhu, Y.~Zhou, Auxiliary-free replica shadows: efficient estimation of
-multiple nonlinear quantum properties, arXiv:2407.20865v2 (2024).
+multiple nonlinear quantum properties, Phys.\ Rev.\ Lett.\ \textbf{136}, 100602 (2026),
+\url{https://doi.org/10.1103/5khs-7dyz}; arXiv:2407.20865v2.
 \bibitem{cwyz} K.~Chen, Q.~Wang, Z.~Yu, Z.~Zhang, Simultaneous estimation of nonlinear functionals of a quantum
 state, IEEE Trans.\ Inf.\ Theory \textbf{72}(9), 6740--6751 (2026), \url{https://doi.org/10.1109/TIT.2026.3699531};
 arXiv:2505.16715v2.

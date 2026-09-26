@@ -11,3 +11,6 @@ if changes were made. The full legal text is at <https://creativecommons.org/lic
 This license covers the version in this repository. A version published by a journal may carry its own terms.
 
 The code in `../code/` is licensed separately under the MIT License (`../LICENSE`).
+
+`sn-jnl.cls` is Springer Nature's LaTeX template class, included unmodified so the source compiles. It is not covered
+by the licenses above; it keeps its own terms (the LaTeX Project Public License, as stated in the file).

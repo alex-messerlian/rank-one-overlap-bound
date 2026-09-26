@@ -14,12 +14,13 @@ difference in acceptance probability for the hard pair is exactly 1/(4√(d−1)
 
 | Folder | What is in it |
 |---|---|
-| `paper/` | `paper.pdf`, its LaTeX source `paper.tex` (the references are inside it) and `figures/` |
+| `paper/` | `paper.pdf`, its LaTeX source `paper.tex` (the references are inside it), `figures/` and the Springer Nature template class `sn-jnl.cls` |
 | `code/` | Scripts and saved results that check the identities, numbers and figure in the paper; see [`code/README.md`](code/README.md) |
 
 ## Rebuilding the PDF
 
-The source uses only standard LaTeX packages. For example, with [Tectonic](https://tectonic-typesetting.github.io):
+The source uses Springer Nature's journal template; its class file `sn-jnl.cls` is included in `paper/`. Build with
+`pdflatex` or, for example, with [Tectonic](https://tectonic-typesetting.github.io):
 
 ```bash
 cd paper && tectonic paper.tex
