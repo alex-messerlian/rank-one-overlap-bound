@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "A single-copy lower bound for rank-one nonlinear overlap estimation"
+type: software
+authors:
+  - family-names: Messerlian
+    given-names: Alexander
+    affiliation: "Independent Researcher, Palo Alto, CA, USA"
+    email: alex.messerlian@icloud.com
+    orcid: "https://orcid.org/0009-0003-4933-6832"
+repository-code: "https://github.com/alex-messerlian/rank-one-overlap-bound"
+license: MIT
+keywords:
+  - nonlinear observables
+  - randomized measurements
+  - sample complexity
+  - single-copy measurements
+  - partial transpose
+  - lower bounds
+preferred-citation:
+  type: unpublished
+  title: "A single-copy lower bound for rank-one nonlinear overlap estimation"
+  authors:
+    - family-names: Messerlian
+      given-names: Alexander
+      orcid: "https://orcid.org/0009-0003-4933-6832"
+  year: 2026
+  notes: "Manuscript"
+  url: "https://github.com/alex-messerlian/rank-one-overlap-bound"
