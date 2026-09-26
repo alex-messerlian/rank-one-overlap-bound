@@ -1,0 +1,272 @@
+{
+ "basic": {
+  "samples_per_d": 50,
+  "seed": 20260925,
+  "rows": [
+   {
+    "d": 2,
+    "q_c_err": 3.3306690738754696e-16,
+    "q_m_err": 0.0,
+    "trace_err": 4.440892098500626e-16,
+    "min_eig": -2.220446049250313e-16,
+    "pop_err": 1.1102230246251565e-16,
+    "ranks(c,m)": [
+     [
+      1,
+      2
+     ]
+    ]
+   },
+   {
+    "d": 4,
+    "q_c_err": 3.3306690738754696e-16,
+    "q_m_err": 0.0,
+    "trace_err": 4.440892098500626e-16,
+    "min_eig": -2.627158555451532e-16,
+    "pop_err": 1.1102230246251565e-16,
+    "ranks(c,m)": [
+     [
+      1,
+      2
+     ]
+    ]
+   },
+   {
+    "d": 8,
+    "q_c_err": 3.885780586188048e-16,
+    "q_m_err": 0.0,
+    "trace_err": 4.440892098500626e-16,
+    "min_eig": -5.129530474188533e-16,
+    "pop_err": 1.1102230246251565e-16,
+    "ranks(c,m)": [
+     [
+      1,
+      2
+     ]
+    ]
+   },
+   {
+    "d": 16,
+    "q_c_err": 3.3306690738754696e-16,
+    "q_m_err": 0.0,
+    "trace_err": 4.440892098500626e-16,
+    "min_eig": -3.968598839574383e-16,
+    "pop_err": 1.1102230246251565e-16,
+    "ranks(c,m)": [
+     [
+      1,
+      2
+     ]
+    ]
+   },
+   {
+    "d": 64,
+    "q_c_err": 4.440892098500626e-16,
+    "q_m_err": 0.0,
+    "trace_err": 4.440892098500626e-16,
+    "min_eig": -4.807701781620774e-16,
+    "pop_err": 1.1102230246251565e-16,
+    "ranks(c,m)": [
+     [
+      1,
+      2
+     ]
+    ]
+   }
+  ]
+ },
+ "identity": {
+  "rows": [
+   {
+    "d": 2,
+    "N": 1,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 1.0,
+    "min_eig_c": 0.5,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 1.0,
+    "min_eig_m": 0.5,
+    "single_copy_equals_sigma": true,
+    "seconds": 0.0013339519500732422
+   },
+   {
+    "d": 2,
+    "N": 2,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 1.0,
+    "min_eig_c": 0.0,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 1.0,
+    "min_eig_m": 0.25,
+    "single_copy_equals_sigma": false,
+    "Delta2_minus_Y_over_4D_maxabs": 0.0,
+    "joint_TV_half_trace_norm": 0.25,
+    "seconds": 0.0005192756652832031
+   },
+   {
+    "d": 2,
+    "N": 3,
+    "max_abs_diff_c": 1.3877787807814457e-17,
+    "trace_c": 1.0,
+    "min_eig_c": -5.5160607614178114e-17,
+    "max_abs_diff_m": 1.3877787807814457e-17,
+    "trace_m": 1.0,
+    "min_eig_m": 0.12499999999999999,
+    "single_copy_equals_sigma": false,
+    "seconds": 0.0006508827209472656
+   },
+   {
+    "d": 3,
+    "N": 2,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 1.0,
+    "min_eig_c": -6.522560269672794e-18,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 1.0,
+    "min_eig_m": -2.312964634635744e-18,
+    "single_copy_equals_sigma": false,
+    "Delta2_minus_Y_over_4D_maxabs": 0.0,
+    "joint_TV_half_trace_norm": 0.25,
+    "seconds": 0.00020360946655273438
+   },
+   {
+    "d": 3,
+    "N": 3,
+    "max_abs_diff_c": 3.469446951953614e-18,
+    "trace_c": 0.9999999999999999,
+    "min_eig_c": -2.6898877470461987e-17,
+    "max_abs_diff_m": 3.469446951953614e-18,
+    "trace_m": 0.9999999999999999,
+    "min_eig_m": -1.156482317317872e-18,
+    "single_copy_equals_sigma": false,
+    "seconds": 0.0006923675537109375
+   },
+   {
+    "d": 4,
+    "N": 1,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 0.9999999999999999,
+    "min_eig_c": 0.16666666666666666,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 0.9999999999999999,
+    "min_eig_m": 0.16666666666666666,
+    "single_copy_equals_sigma": true,
+    "seconds": 0.00011801719665527344
+   },
+   {
+    "d": 4,
+    "N": 2,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 1.0,
+    "min_eig_c": -1.156482317317872e-18,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 1.0,
+    "min_eig_m": -3.469446951953614e-18,
+    "single_copy_equals_sigma": false,
+    "Delta2_minus_Y_over_4D_maxabs": 0.0,
+    "joint_TV_half_trace_norm": 0.25,
+    "seconds": 0.00023412704467773438
+   },
+   {
+    "d": 4,
+    "N": 3,
+    "max_abs_diff_c": 1.734723475976807e-18,
+    "trace_c": 1.0,
+    "min_eig_c": -3.004838750278444e-17,
+    "max_abs_diff_m": 1.734723475976807e-18,
+    "trace_m": 1.0,
+    "min_eig_m": -1.2672850241563017e-17,
+    "single_copy_equals_sigma": false,
+    "seconds": 0.0019199848175048828
+   },
+   {
+    "d": 5,
+    "N": 2,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 1.0,
+    "min_eig_c": -5.300210481963739e-18,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 1.0,
+    "min_eig_m": -2.1920695276530448e-18,
+    "single_copy_equals_sigma": false,
+    "Delta2_minus_Y_over_4D_maxabs": 0.0,
+    "joint_TV_half_trace_norm": 0.25,
+    "seconds": 0.00028204917907714844
+   },
+   {
+    "d": 8,
+    "N": 1,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 0.9999999999999999,
+    "min_eig_c": 0.07142857142857142,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 0.9999999999999999,
+    "min_eig_m": 0.07142857142857142,
+    "single_copy_equals_sigma": true,
+    "seconds": 0.00012087821960449219
+   },
+   {
+    "d": 8,
+    "N": 2,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 0.9999999999999998,
+    "min_eig_c": -3.2718146493383644e-18,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 0.9999999999999998,
+    "min_eig_m": -1.9029089071502606e-18,
+    "single_copy_equals_sigma": false,
+    "Delta2_minus_Y_over_4D_maxabs": 0.0,
+    "joint_TV_half_trace_norm": 0.25,
+    "seconds": 0.0005321502685546875
+   },
+   {
+    "d": 8,
+    "N": 3,
+    "max_abs_diff_c": 0.0,
+    "trace_c": 0.9999999999999997,
+    "min_eig_c": -1.6448871166283952e-17,
+    "max_abs_diff_m": 0.0,
+    "trace_m": 0.9999999999999997,
+    "min_eig_m": -6.519395751617853e-18,
+    "single_copy_equals_sigma": false,
+    "seconds": 0.030964136123657227
+   }
+  ]
+ },
+ "monte_carlo": {
+  "rows": [
+   {
+    "d": 4,
+    "N": 2,
+    "samples": 40000,
+    "seed": 410,
+    "max_abs_dev_c": 0.0008931992010433846,
+    "max_abs_dev_m": 0.00042105402587284957,
+    "max_entry_c": 0.25,
+    "stat_scale_1_over_sqrt_samples": 0.005
+   },
+   {
+    "d": 4,
+    "N": 3,
+    "samples": 40000,
+    "seed": 411,
+    "max_abs_dev_c": 0.00040486697445008517,
+    "max_abs_dev_m": 0.00027980207490717254,
+    "max_entry_c": 0.125,
+    "stat_scale_1_over_sqrt_samples": 0.005
+   },
+   {
+    "d": 8,
+    "N": 2,
+    "samples": 20000,
+    "seed": 414,
+    "max_abs_dev_c": 0.0012747538581792666,
+    "max_abs_dev_m": 0.000501609681958348,
+    "max_entry_c": 0.25,
+    "stat_scale_1_over_sqrt_samples": 0.007071067811865475
+   }
+  ],
+  "note": "floating-point Monte Carlo sanity check only; the identity itself is proved analytically"
+ },
+ "runtime_s": 4.79994797706604
+}

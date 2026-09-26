@@ -1,0 +1,19 @@
+# Private working notes (kept locally, never published)
+CLAUDE.md
+.claude/
+submission/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# LaTeX build by-products
+*.aux
+*.log
+*.out
+*.synctex.gz
